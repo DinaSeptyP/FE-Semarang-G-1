@@ -61,7 +61,7 @@ function submitEditButtonClick(postId, event) {
         .then((data) => {
         console.log('Data updated:', data);
         // Navigate ke seluruh data setelah berhasil update
-        window.location.href = '/admin/data';
+        window.location.href = 'https://dinaseptyp.github.io/FE-Semarang-G-1.github.io/admin/data.html';
         })
         .catch((error) => {
         console.error('Error updating data:', error);
@@ -77,7 +77,7 @@ function deleteButtonClick(postId) {
         .then((response) => response.json())
         .then((data) => {
         // Navigate ke /admin/data
-        window.location.href = '/admin/data';
+        window.location.href = 'https://dinaseptyp.github.io/FE-Semarang-G-1.github.io/admin/data.html';
         alert('Data berhasil dihapus');
         })
         .catch((error) => {
@@ -148,7 +148,7 @@ function submitLogin(event) {
           const token = data.token; //token from server
           localStorage.setItem('token', token); // save to local storage
           document.cookie = `token=${token}`
-          window.location.href = '/admin/data';
+          window.location.href = 'https://dinaseptyp.github.io/FE-Semarang-G-1.github.io/admin/data.html';
       } else {
           alert('Login gagal. Periksa kembali username dan password Anda.');
       }
@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const token = localStorage.getItem('token'); // token from Local storage
   if (!token) {
       // Token not found, balik ke halaman login
-      window.location.href = '/login';
+      window.location.href = 'https://dinaseptyp.github.io/FE-Semarang-G-1.github.io/admin/login.html';
   } else {
       // Kirim permintaan GET ke server dengan token
       fetch('/admin/data', {

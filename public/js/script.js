@@ -35,7 +35,7 @@ btn.addEventListener('click', () => {
       icon: 'success',
     }).then((result) => {
       if (result.isConfirmed) {
-          window.location.href = "/";
+          window.location.href = "https://dinaseptyp.github.io/FE-Semarang-G-1.github.io/";
       }
   });
   }
