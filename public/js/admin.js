@@ -93,14 +93,12 @@ function editButtonClick(postId) {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data[0]);
-      console.log(result[0]);
-        const message = data.result[0]; // Ambil elemen pertama dari array data
-        document.getElementById("data_id").value = message.data_id;
-        document.getElementById("name").value = message.name;
-        document.getElementById("email").value = message.email;
-        document.getElementById("message").innerText = message.message;
-        document.getElementById("review").value = message.review;
+      // console.log(data[0]);
+        document.getElementById("data_id").value = data.data_id;
+        document.getElementById("name").value = data.name;
+        document.getElementById("email").value = data.email;
+        document.getElementById("message").innerText = data.message;
+        document.getElementById("review").value = data.review;
   
       // Menampilkan modal
       modal.style.display = "block";
