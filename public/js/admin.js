@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function() {
   .then((response) => response.json())
   .then((data) => {
     if (data.success) {
-      const messages = data.result.messages;
+      const messages = data.messages;
 
       messages.forEach((message) => {
         const newRow = document.createElement('tr');
