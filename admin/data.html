@@ -34,7 +34,7 @@
           <h2 class="header-data-modals">Edit Contact us</h2>
         </div>
         <div class="modal-body">
-          <form id="edit-form" onsubmit="submitEditButtonClick(document.getElementById('data_id').value, event)">
+          <form id="edit-form" action="https://be-semarang-g-1-production.up.railway.app/api/admin/data/:id" method="post"  onsubmit="submitEditButtonClick(document.getElementById('input_edit_data_id').value, event)">
             <!-- Form update data, langsung muncul data asli -->
             <label for="data_id">Id:</label>
             <input type="text" id="input_edit_data_id" name="data_id" required readonly style="color: #adadad;"><br>
