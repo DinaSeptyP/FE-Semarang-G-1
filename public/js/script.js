@@ -35,7 +35,6 @@ btn.addEventListener('click', () => {
       icon: 'success',
     }).then((result) => {
       if (result.isConfirmed) {
-        
         fetch('https://be-semarang-g-1-production.up.railway.app/api/submit-form', {
           method: 'POST',
           mode: 'cors',
@@ -46,7 +45,7 @@ btn.addEventListener('click', () => {
         })
           .then((response) => response.json())
           .then((data) => {
-            if (data.success) {
+            if (data.error == null) {
               console.log(data);
             } else {
               console.error('Error sending data to the server:', data.error);
