@@ -35,6 +35,7 @@ btn.addEventListener('click', () => {
       icon: 'success',
     }).then((result) => {
       if (result.isConfirmed) {
+        
         fetch('https://be-semarang-g-1-production.up.railway.app/api/submit-form', {
           method: 'POST',
           headers: {
@@ -46,6 +47,7 @@ btn.addEventListener('click', () => {
           .then((data) => {
             if (data.success) {
               console.log('Data successfully sent to the server.');
+              window.location.href = "https://dinaseptyp.github.io/FE-Semarang-G-1.github.io/";
             } else {
               console.error('Error sending data to the server:', data.error);
             }
@@ -53,7 +55,6 @@ btn.addEventListener('click', () => {
           .catch((error) => {
             console.error('Error sending data to the server:', error);
           });
-          window.location.href = "https://dinaseptyp.github.io/FE-Semarang-G-1.github.io/";
       }
   });
   }
