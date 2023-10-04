@@ -28,7 +28,7 @@ function editButtonClick(postId) {
     method: 'GET',
     headers: {
     'Content-Type': 'application/json',
-    'Authorization': `Bearer ${token}`
+    'authorization': `Bearer ${token}`
     },
   })
     .then((response) => response.json())
@@ -62,7 +62,7 @@ function submitEditButtonClick(postId, event) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
+            'authorization': `Bearer ${token}`
         },
         body: JSON.stringify(updatedData),
     })
@@ -95,14 +95,15 @@ function deleteButtonClick(postId) {
     }
 }
 
-const tableBody = document.getElementById('table-body-data');
-fetch(`${hostUrl}/api/admin/data/`, {
-  method: 'GET',
-  headers: {
-  'Content-Type': 'application/json',
-  'Authorization': `Bearer ${token}`
-  },
-})
+document.addEventListener('DOMContentLoaded', function() {
+  const tableBody = document.getElementById('table-body-data');
+  fetch(`${hostUrl}/api/admin/data/`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'authorization': `Bearer ${token}`
+    },
+  })
   .then((response) => response.json())
   .then((data) => {
     if (data.success) {
@@ -137,7 +138,7 @@ fetch(`${hostUrl}/api/admin/data/`, {
   .catch((error) => {
     console.error('Error fetching data:', error);
   });
-
+});
 ///////////// PAGE LOGIN /////////////
 
 function submitLogin(event) {
@@ -183,7 +184,7 @@ document.addEventListener("DOMContentLoaded", function () {
       fetch(`${hostUrl}/api/admin/data`, {
           method: 'GET',
           headers: {
-              'Authorization': `Bearer ${token}` // Kirim token dalam header "Authorization"
+              'authorization': `Bearer ${token}` // Kirim token dalam header "Authorization"
           }
       })
       .then(response => {
