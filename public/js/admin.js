@@ -140,11 +140,11 @@ function editButtonClick(postId) {
     .then((response) => response.json())
     .then((data) => {
       console.log(data[0]);
-        document.getElementById("input_edit_data_id").value = data.data_id;
-        document.getElementById("input_edit_name").value = data.name;
-        document.getElementById("input_edit_email").value = data.email;
-        document.getElementById("input_edit_message").innerText = data.message;
-        document.getElementById("input_edit_review").value = data.review;
+        document.getElementById("input_edit_data_id").value = data[0].data_id;
+        document.getElementById("input_edit_name").value = data[0].name;
+        document.getElementById("input_edit_email").value = data[0].email;
+        document.getElementById("input_edit_message").innerText = data[0].message;
+        document.getElementById("input_edit_review").value = data[0].review;
   
       // Menampilkan modal
       modal.style.display = "block";
@@ -174,7 +174,7 @@ function submitEditButtonClick(postId, event) {
     })
         .then((response) => response.json())
         .then((data) => {
-        console.log('Data updated:', data);
+        // console.log('Data updated:', data);
         // Navigate ke seluruh data setelah berhasil update
         window.location.href = 'https://dinaseptyp.github.io/FE-Semarang-G-1.github.io/admin/data.html';
         })
