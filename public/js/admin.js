@@ -130,7 +130,7 @@ function editButtonClick(postId) {
     }
 }
   // Kirim permintaan untuk mengambil data dari server yang ditampilkan di form
-  fetch(`${hostUrl}/api/admin/data/:id`, {
+  fetch(`${hostUrl}/api/admin/data/${postId}`, {
     method: 'GET',
     headers: {
     'Content-Type': 'application/json',
