@@ -37,19 +37,19 @@
           <form id="edit-form" action="/api/admin/data/" method="post"  onsubmit="submitEditButtonClick(document.getElementById('data_id').value, event)">
             <!-- Form update data, langsung muncul data asli -->
             <label for="data_id">Id:</label>
-            <input type="text" id="data_id" name="data_id" required readonly style="color: #adadad;"><br>
+            <input type="text" id="input_edit_data_id" name="data_id" required readonly style="color: #adadad;"><br>
 
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required><br>
+            <input type="text" id="input_edit_name" name="name" required><br>
 
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required><br>
+            <input type="email" id="input_edit_email" name="email" required><br>
 
             <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea><br>
+            <textarea id="input_edit_message" name="message" required></textarea><br>
 
             <label for="review">Review:</label>
-            <textarea id="review" name="review" required></textarea><br>
+            <textarea id="input_edit_review" name="review" required></textarea><br>
 
             <button type="submit" id="submit-button" style="width: 12%; height: 35px; font-size: 18px; border: 1px solid; background: #84acc5; border-radius: 5px; color: #e9f4fb; font-weight: 500; cursor: pointer; outline: none; display: block;margin-right: 0;margin-left: auto;">Submit</button>
           </form>

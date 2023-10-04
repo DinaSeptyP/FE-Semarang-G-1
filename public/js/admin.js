@@ -130,7 +130,7 @@ function editButtonClick(postId) {
     }
 }
   // Kirim permintaan untuk mengambil data dari server yang ditampilkan di form
-  fetch(`${hostUrl}/api/admin/data/${postId}`, {
+  fetch(`${hostUrl}/api/admin/data/:id`, {
     method: 'GET',
     headers: {
     'Content-Type': 'application/json',
@@ -140,11 +140,11 @@ function editButtonClick(postId) {
     .then((response) => response.json())
     .then((data) => {
       console.log(data[0]);
-        document.getElementById("data_id").value = data.data_id;
-        document.getElementById("name").value = data.name;
-        document.getElementById("email").value = data.email;
-        document.getElementById("message").innerText = data.message;
-        document.getElementById("review").value = data.review;
+        document.getElementById("input_edit_data_id").value = data.data_id;
+        document.getElementById("input_edit_name").value = data.name;
+        document.getElementById("input_edit_email").value = data.email;
+        document.getElementById("input_edit_message").innerText = data.message;
+        document.getElementById("input_edit_review").value = data.review;
   
       // Menampilkan modal
       modal.style.display = "block";
@@ -158,10 +158,10 @@ function submitEditButtonClick(postId, event) {
     event.preventDefault();
 
     const updatedData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        message: document.getElementById('message').value,
-        review: document.getElementById('review').value,
+        name: document.getElementById('input_edit_name').value,
+        email: document.getElementById('input_edit_email').value,
+        message: document.getElementById('input_edit_message').value,
+        review: document.getElementById('input_edit_review').value,
         postId: postId,
     };
     fetch(`${hostUrl}/api/admin/data/${postId}`, {
