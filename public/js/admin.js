@@ -150,7 +150,7 @@ function submitLogin(event) {
   };
 
   // Kirim permintaan POST ke server
-  fetch(`h${hostUrl}/api/login`, {
+  fetch(`${hostUrl}/api/login`, {
       method: 'POST',
       headers: {
       'Content-Type': 'application/json',
