@@ -93,7 +93,7 @@ function editButtonClick(postId) {
   })
     .then((response) => response.json())
     .then((data) => {
-      // console.log(data[0]);
+      console.log(data[0]);
         document.getElementById("data_id").value = data.data_id;
         document.getElementById("name").value = data.name;
         document.getElementById("email").value = data.email;
