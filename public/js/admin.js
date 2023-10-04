@@ -128,7 +128,7 @@ fetch(`${hostUrl}/api/admin/data/`, {
           </td>
         `;
         newRow.innerHTML = dataElement;
-        tableBody.appendChild(newRow);
+        tableBody.append(newRow);
       });
     } else {
       console.error('Error fetching data:', data.error);
