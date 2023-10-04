@@ -38,6 +38,7 @@ btn.addEventListener('click', () => {
         
         fetch('https://be-semarang-g-1-production.up.railway.app/api/submit-form', {
           method: 'POST',
+          mode: 'cors',
           headers: {
             'Content-Type': 'application/json',
           },
