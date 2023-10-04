@@ -156,7 +156,8 @@ function editButtonClick(postId) {
   
 function submitEditButtonClick(postId, event) {
     event.preventDefault();
-
+    console.log(postId);
+    console.log(`${hostUrl}/api/admin/data/${postId}`);
     const updatedData = {
         name: document.getElementById('input_edit_name').value,
         email: document.getElementById('input_edit_email').value,
