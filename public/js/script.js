@@ -14,51 +14,48 @@ document.addEventListener("click", function (e) {
   }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-  const form = document.querySelector('form');
+const btn = document.getElementById('btn'); 
 
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
+btn.addEventListener('click', () => {
+  const name = document.getElementById('input-name').value;
+  const email = document.getElementById('input-email').value;
+  const message = document.getElementById('input-message').value;
 
-    const name = document.getElementById('input-name').value;
-    const email = document.getElementById('input-email').value;
-    const message = document.getElementById('input-message').value;
-
-    if (!name || !email || !message) {
+  if (!name || !email || !message) {
       Swal.fire({
-        title: 'Required',
-        text: 'Please fill in all fields.',
-        icon: 'info',
+          title: 'Required',
+          text: 'Please fill in all fields.',
+          icon: 'info',
       });
       return;
-    } else {
-      Swal.fire({
-        title: 'Thank you for submitting!',
-        text: 'We got your message.',
-        icon: 'success',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          fetch('https://be-semarang-g-1-production.up.railway.app/api/submit-form', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ name, email, message }),
+  } else {
+    Swal.fire({
+      title: 'Thank you for submitting!',
+      text: 'We got your message.',
+      icon: 'success',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch('https://be-semarang-g-1-production.up.railway.app/api/submit-form', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ name, email, message }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              console.log('Data successfully sent to the server.');
+            } else {
+              console.error('Error sending data to the server:', data.error);
+            }
           })
-            .then((response) => response.json())
-            .then((data) => {
-              if (data.success) {
-                console.log('Data successfully sent to the server.');
-              } else {
-                console.error('Error sending data to the server:', data.error);
-              }
-            })
-            .catch((error) => {
-              console.error('Error sending data to the server:', error);
-            });
+          .catch((error) => {
+            console.error('Error sending data to the server:', error);
+          });
           window.location.href = "https://dinaseptyp.github.io/FE-Semarang-G-1.github.io/";
-        }
-      });
-    }
+      }
   });
+  }
+  document.querySelector('form').submit();
 });
