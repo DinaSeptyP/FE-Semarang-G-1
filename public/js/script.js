@@ -47,7 +47,6 @@ btn.addEventListener('click', () => {
           .then((data) => {
             if (data.success) {
               console.log('Data successfully sent to the server.');
-              window.location.href = "https://dinaseptyp.github.io/FE-Semarang-G-1.github.io/";
             } else {
               console.error('Error sending data to the server:', data.error);
             }
