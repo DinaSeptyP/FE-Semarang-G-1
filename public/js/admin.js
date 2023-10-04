@@ -1,3 +1,6 @@
+const hostUrl = "https://be-semarang-g-1-production.up.railway.app";
+const token = localStorage.getItem('token')
+
 ///////////// PAGE DATA /////////////
 function editButtonClick(postId) {
   // Get modal
@@ -21,7 +24,13 @@ function editButtonClick(postId) {
     }
 }
   // Kirim permintaan untuk mengambil data dari server yang ditampilkan di form
-  fetch(`https://be-semarang-g-1-production.up.railway.app/api/admin/data/${postId}`)
+  fetch(`${hostUrl}/api/admin/data/${postId}`, {
+    method: 'GET',
+    headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${token}`
+    },
+  })
     .then((response) => response.json())
     .then((data) => {
         const message = data[0]; // Ambil elemen pertama dari array data
@@ -49,11 +58,11 @@ function submitEditButtonClick(postId, event) {
         review: document.getElementById('review').value,
         postId: postId,
     };
-    fetch(`https://be-semarang-g-1-production.up.railway.app/api/admin/data/${postId}`, {
+    fetch(`${hostUrl}/api/admin/data/${postId}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            // 'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify(updatedData),
     })
@@ -71,7 +80,7 @@ function submitEditButtonClick(postId, event) {
 function deleteButtonClick(postId) {
     const confirmDelete = confirm("Apakah Anda yakin ingin menghapus data ini?");
     if (confirmDelete) {
-    fetch(`https://be-semarang-g-1-production.up.railway.app/api/admin/data/${postId}`, {
+    fetch(`${hostUrl}/api/admin/data/${postId}`, {
         method: 'DELETE',
     })
         .then((response) => response.json())
@@ -87,7 +96,13 @@ function deleteButtonClick(postId) {
 }
 
 const tableBody = document.getElementById('table-body-data');
-fetch('https://be-semarang-g-1-production.up.railway.app/api/admin/data/')
+fetch(`${hostUrl}/api/admin/data/`, {
+  method: 'GET',
+  headers: {
+  'Content-Type': 'application/json',
+  'Authorization': `Bearer ${token}`
+  },
+})
   .then((response) => response.json())
   .then((data) => {
     if (data.success) {
@@ -135,7 +150,7 @@ function submitLogin(event) {
   };
 
   // Kirim permintaan POST ke server
-  fetch(`https://be-semarang-g-1-production.up.railway.app/api/login`, {
+  fetch(`h${hostUrl}/api/login`, {
       method: 'POST',
       headers: {
       'Content-Type': 'application/json',
@@ -165,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
       window.location.href = 'https://dinaseptyp.github.io/FE-Semarang-G-1.github.io/admin/login.html';
   } else {
       // Kirim permintaan GET ke server dengan token
-      fetch('/admin/data', {
+      fetch(`${hostUrl}/api/admin/data`, {
           method: 'GET',
           headers: {
               'Authorization': `Bearer ${token}` // Kirim token dalam header "Authorization"
