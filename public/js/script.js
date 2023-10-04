@@ -35,14 +35,13 @@ btn.addEventListener('click', () => {
       icon: 'success',
     }).then((result) => {
       if (result.isConfirmed) {
-        // fetch('https://be-semarang-g-1-production.up.railway.app/api/submit-form', {
-        //   method: 'POST',
-        //   headers: {
-        //     'Content-Type': 'application/json',
-        //   },
-        //   body: JSON.stringify({ name, email, message }),
-        // })
-        console.log('sukses')
+        fetch('https://be-semarang-g-1-production.up.railway.app/api/submit-form', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ name, email, message }),
+        })
           .then((response) => response.json())
           .then((data) => {
             if (data.success) {
