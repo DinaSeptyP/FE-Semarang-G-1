@@ -46,7 +46,7 @@ btn.addEventListener('click', () => {
           .then((response) => response.json())
           .then((data) => {
             if (data.success) {
-              console.log('Data successfully sent to the server.');
+              console.log(data);
             } else {
               console.error('Error sending data to the server:', data.error);
             }
