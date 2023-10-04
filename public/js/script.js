@@ -55,6 +55,7 @@ btn.addEventListener('click', () => {
             console.error('Error sending data to the server:', error);
           });
       }
+      window.location.href = "https://dinaseptyp.github.io/FE-Semarang-G-1.github.io/";
   });
   }
 });
