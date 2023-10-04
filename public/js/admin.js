@@ -93,6 +93,7 @@ function editButtonClick(postId) {
   })
     .then((response) => response.json())
     .then((data) => {
+      console.log(data[0]);
       console.log(result[0]);
         const message = data.result[0]; // Ambil elemen pertama dari array data
         document.getElementById("data_id").value = message.data_id;
