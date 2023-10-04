@@ -57,5 +57,4 @@ btn.addEventListener('click', () => {
       }
   });
   }
-  document.querySelector('form').submit();
 });
