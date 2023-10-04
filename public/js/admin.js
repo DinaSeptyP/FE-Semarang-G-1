@@ -93,7 +93,7 @@ function editButtonClick(postId) {
   })
     .then((response) => response.json())
     .then((data) => {
-        const message = data[0]; // Ambil elemen pertama dari array data
+        const message = data.result[0]; // Ambil elemen pertama dari array data
         document.getElementById("data_id").value = message.data_id;
         document.getElementById("name").value = message.name;
         document.getElementById("email").value = message.email;
@@ -122,7 +122,7 @@ function submitEditButtonClick(postId, event) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify(updatedData),
     })
@@ -142,6 +142,9 @@ function deleteButtonClick(postId) {
     if (confirmDelete) {
     fetch(`${hostUrl}/api/admin/data/${postId}`, {
         method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`
+      },
     })
         .then((response) => response.json())
         .then((data) => {
@@ -167,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function() {
   .then((response) => response.json())
   .then((data) => {
     if (data.success) {
-      const messages = data.messages;
+      const messages = data.result.messages;
 
       messages.forEach((message) => {
         const newRow = document.createElement('tr');
