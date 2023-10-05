@@ -38,8 +38,10 @@ function submitLogin(event) {
   
   document.addEventListener("DOMContentLoaded", function () {
     const token = localStorage.getItem('token'); // token from Local storage
-    if (!token) {
-        // Token not found, balik ke halaman login
+    const currentUrl = window.location.href;
+
+    if (!token && currentUrl !== 'https://dinaseptyp.github.io/FE-Semarang-G-1.github.io/admin/login.html') {
+        // Token not found and not on the login page, balik ke halaman login
         window.location.href = 'https://dinaseptyp.github.io/FE-Semarang-G-1.github.io/admin/login.html';
     } else {
         // Kirim permintaan GET ke server dengan token
@@ -58,4 +60,4 @@ function submitLogin(event) {
             console.error('Error fetching data:', error);
         });
     }
-  });
+});
