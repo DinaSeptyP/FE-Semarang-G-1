@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      'authorization': `Bearer ${token}`
+      'Authorization': `Bearer ${token}`
     },
   })
   .then((response) => response.json())
@@ -75,7 +75,7 @@ function editButtonClick(postId) {
     method: 'GET',
     headers: {
     'Content-Type': 'application/json',
-    'authorization': `Bearer ${token}`
+    'Authorization': `Bearer ${token}`
     },
   })
     .then((response) => response.json())
