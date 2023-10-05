@@ -1,6 +1,30 @@
 const hostUrl = "https://be-semarang-g-1-production.up.railway.app";
 const token = localStorage.getItem('token')
 
+document.addEventListener("DOMContentLoaded", function () {
+  const token = localStorage.getItem('token'); // token from Local storage
+  if (!token) {
+      // Token not found, balik ke halaman login
+      window.location.href = 'https://dinaseptyp.github.io/FE-Semarang-G-1.github.io/admin/login.html';
+  } else {
+      // Kirim permintaan GET ke server dengan token
+      fetch(`${hostUrl}/api/admin/data`, {
+          method: 'GET',
+          headers: {
+              'authorization': `Bearer ${token}` // Kirim token dalam header "Authorization"
+          }
+      })
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Network response was not ok');
+          }
+      })
+      .catch(error => {
+          console.error('Error fetching data:', error);
+      });
+  }
+});
+
 ///////////// PAGE DATA /////////////
 
 document.addEventListener('DOMContentLoaded', function() {
